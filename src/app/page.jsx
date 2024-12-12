@@ -1,4 +1,3 @@
-import { FaSearch } from "react-icons/fa";
 import { Card } from "./card.jsx";
 export default function Home() {
   return (
