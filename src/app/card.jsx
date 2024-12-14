@@ -1,8 +1,9 @@
 import { CiLocationOn } from "react-icons/ci";
 import Image from "next/image";
-
+import { CiHome } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
 export function Card({ value, city, weather }) {
-  // Day and Night Background Color
   const nightColor =
     "bg-gradient-to-t from-[#111827] from-0% to-[#1F2937] to-200%";
   const dayColor =
@@ -24,18 +25,16 @@ export function Card({ value, city, weather }) {
   const imgNightWind = "/nightWind.png";
   const imgNightMoon = "/nightMoon.png";
   const imgNightCloud = "/nightClouds.png";
-  console.log(imgNightMoon);
-  console.log(imgCloud);
 
   let imgSource = imgSun;
   const conditionText = weather.condition;
 
   if (value == "night") {
-    if (conditionText == "Clear") {
+    if (conditionText == "Clear ") {
       imgSource = imgNightMoon;
-    } else if (conditionText == "Partly cloudy") {
+    } else if (conditionText == "Partly Cloudy ") {
       imgSource = imgNightCloud;
-    } else if (conditionText == "Cloudy" || conditionText == "Overcast ") {
+    } else if (conditionText == "Cloudy " || conditionText == "Overcast ") {
       imgSource = imgNightCloud;
     } else if (conditionText == "Patchy rain nearby") {
       imgSource = imgNightRain;
@@ -43,7 +42,8 @@ export function Card({ value, city, weather }) {
       conditionText == "Rain showers" ||
       conditionText == "Light rain" ||
       conditionText == "Moderate rain" ||
-      conditionText == "Heavy rain"
+      conditionText == "Heavy rain" ||
+      conditionText == "Light rain shower"
     ) {
       imgSource = imgNightRain;
     } else if (conditionText == "Thunderstorm") {
@@ -69,7 +69,7 @@ export function Card({ value, city, weather }) {
       imgSource = imgSun;
     } else if (conditionText == "Partly Cloudy ") {
       imgSource = imgCloud;
-    } else if (conditionText == "Cloudy" || conditionText == "Overcast ") {
+    } else if (conditionText == "Cloudy " || conditionText == "Overcast ") {
       imgSource = imgCloud;
     } else if (conditionText == "Patchy rain nearby") {
       imgSource = imgRain;
@@ -86,7 +86,8 @@ export function Card({ value, city, weather }) {
       conditionText == "Snow showers" ||
       conditionText == "Light snow" ||
       conditionText == "Moderate snow" ||
-      conditionText == "Heavy snow"
+      conditionText == "Heavy snow" ||
+      conditionText == "Moderate or heavy snow showers"
     ) {
       imgSource = imgSnow;
     } else if (conditionText == "Sleet") {
@@ -123,13 +124,13 @@ export function Card({ value, city, weather }) {
 
   return (
     <div
-      className={`w-[26rem] h-[52rem] ${color} mx-auto ${marginTop} rounded-[2rem] bg-blur-[200px] absolute left-[12rem] z-[10] `}
+      className={`w-[26rem] h-[52rem] ${color} mx-auto ${marginTop} rounded-[2rem] bg-blur-[200px] absolute left-[12rem] z-[10] opacity-90 blur-[0.1px] `}
     >
       <div className="w-fit h-fit pt-[64px] pl-10 ">
         <p className="text-[#9CA3AF] font-medium text-[18px]">
-          September 10, 2021
+          {weather.lastUpdated}
         </p>
-        <h1 className={`${cityTextColor} text-[48px] font-extrabold`}>
+        <h1 className={`${cityTextColor} text-[44px] font-extrabold`}>
           {city}
         </h1>
       </div>
@@ -152,6 +153,12 @@ export function Card({ value, city, weather }) {
         <h4 className={`${moodTextColor} text-[24px] font-extrabold `}>
           {weather.condition}
         </h4>
+      </div>
+      <div className="flex w-[318px] h-[32px] justify-between mt-[3rem] mx-auto">
+        <CiHome className="w-[2rem] h-[2rem] text-[#9CA3AF]" />
+        <CiLocationOn className="w-[2rem] h-[2rem] text-[#9CA3AF]" />
+        <CiHeart className="w-[2rem] h-[2rem] text-[#9CA3AF]" />
+        <CiUser className="w-[2rem] h-[2rem] text-[#9CA3AF]" />
       </div>
     </div>
   );

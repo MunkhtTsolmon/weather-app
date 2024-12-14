@@ -27,3 +27,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
