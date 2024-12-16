@@ -3,7 +3,7 @@ import { use, useEffect, useState } from "react";
 import { Card } from "./card.jsx";
 import { SearchInput } from "./searchInput.jsx";
 import Image from "next/image.js";
-import { ComboboxDemo } from "./autoCompleteSearchBox.jsx";
+// import { ComboboxDemo } from "./autoCompleteSearchBox.jsx";
 const API_KEY = "eb7323f19ada4471b0072607241312";
 
 export default function Home() {
@@ -64,7 +64,7 @@ export default function Home() {
           onChangeText={onChangeText}
           onKeyDown={onKeyDown}
         />
-        <ComboboxDemo />
+        {/* <ComboboxDemo /> */}
         <Card weather={dayWeather} city={city} />
       </div>
       <div className="w-[50rem] h-[75rem] rounded-lg relative bg-[#F3F4F6]">
